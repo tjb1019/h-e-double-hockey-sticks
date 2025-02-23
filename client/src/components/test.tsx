@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { useApiStatus } from "../hooks/useApiStatus";
+import { useDraft } from "../hooks/useDraft";
 
 export const TestComponent: FC = () => {
-  const { data: status } = useApiStatus();
+  const { data: status } = useDraft();
   console.log(status);
 
   return <></>

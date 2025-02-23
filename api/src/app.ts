@@ -5,6 +5,7 @@ import cors from './config/cors.config';
 
 import pingRoutes from './routes/ping.route';
 import authRoutes from './routes/auth.route';
+import draftRoutes from './routes/draft.route';
 //const authMiddleware = require("./middleware/auth");
 
 // init app
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', [
   pingRoutes,
   authRoutes,
+  draftRoutes,
 ]);
 
 // 404
