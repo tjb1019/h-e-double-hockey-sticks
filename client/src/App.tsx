@@ -1,42 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { TestComponent } from './components/test'
+import "./App.module.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "@mantine/core/styles.css";
+import {
+	AppShell,
+	Burger,
+	Group,
+	Image,
+	MantineProvider,
+	Title,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { Outlet } from "react-router";
+import styles from "./App.module.css";
+import { Nav } from "./components/nav/Nav";
+import { Team } from "./components/team/Team";
+import { Teams } from "./components/teams/Teams";
+import { TestComponent } from "./components/test";
+import { theme } from "./theme";
 
-function App() {
-  const [count, setCount] = useState(0);
-  // Create a client
-  const queryClient = new QueryClient();
+function AppCore() {
+	const [opened, { toggle }] = useDisclosure();
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <>
-        <TestComponent />
-        <div>
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
-      </>
-    </QueryClientProvider>
-  )
+	return (
+		<AppShell
+			header={{ height: 60 }}
+			navbar={{
+				width: 300,
+				breakpoint: "sm",
+				collapsed: { mobile: !opened },
+			}}
+			padding="md"
+		>
+			<AppShell.Header>
+				<Group h="100%" gap="xs" px="md">
+					<Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+					<Image src="/nhl-logo.png" height="75%" />
+					<Title order={3}>Hockey Manager 2025</Title>
+				</Group>
+			</AppShell.Header>
+
+			<AppShell.Navbar p="md">
+				<Nav />
+			</AppShell.Navbar>
+
+			<AppShell.Main>
+				<Outlet />
+			</AppShell.Main>
+		</AppShell>
+	);
 }
 
-export default App
+function App() {
+	const queryClient = new QueryClient();
+
+	return (
+		<QueryClientProvider client={queryClient}>
+			<MantineProvider theme={theme}>
+				<AppCore />
+			</MantineProvider>
+		</QueryClientProvider>
+	);
+}
+
+export default App;

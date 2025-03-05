@@ -1,29 +1,26 @@
-import express, { Express, Response } from 'express';
 import bodyParser from 'body-parser';
+import express, { type Express, type Response } from 'express';
 
-import cors from './config/cors.config';
-
-import pingRoutes from './routes/ping.route';
+import corsConfig from './config/cors.config';
 import authRoutes from './routes/auth.route';
 import draftRoutes from './routes/draft.route';
+import pingRoutes from './routes/ping.route';
+import rostersRoutes from './routes/rosters.route';
+import teamsRoutes from './routes/teams.route';
 //const authMiddleware = require("./middleware/auth");
 
 // init app
 const app: Express = express();
 
 // cors
-app.use(cors);
+app.use(corsConfig);
 
 // request payload
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes
-app.use('/api', [
-  pingRoutes,
-  authRoutes,
-  draftRoutes,
-]);
+app.use('/api', [pingRoutes, authRoutes, draftRoutes, teamsRoutes, rostersRoutes]);
 
 // 404
 app.use((_, res: Response) => {

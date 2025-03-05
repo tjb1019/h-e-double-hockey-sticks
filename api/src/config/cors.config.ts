@@ -1,8 +1,6 @@
 import cors, { CorsOptions } from 'cors';
 
-const originWhitelist = [
-  "http://localhost:5173"
-];
+const originWhitelist = ['http://localhost:5173'];
 
 const corsConfig: CorsOptions = {
   origin: originWhitelist,
