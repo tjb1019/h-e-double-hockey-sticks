@@ -1,0 +1,22 @@
+.root {
+  border-bottom: 1px solid lightgrey;
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    height: 40px;
+  }
+
+  .navItem {
+    border-bottom: 2px solid transparent;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &.isActive {
+      border-color: var(--brand-color);
+    }
+  }
+}

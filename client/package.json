@@ -12,14 +12,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mantine/core": "^7.17.0",
-    "@mantine/hooks": "^7.17.0",
-    "@mantine/modals": "^7.17.0",
-    "@mantine/notifications": "^7.17.0",
     "@tanstack/react-query": "^5.66.9",
+    "clsx": "^2.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.2.0"
+    "react-router": "^7.2.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/react": "^19.0.8",

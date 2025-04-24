@@ -1,0 +1,92 @@
+.root {
+  --input-height: 50px;
+  
+  position: relative;
+  
+  .combobox {
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    padding: 0 10px;
+    height: var(--input-height);
+    display: flex;
+    align-items: center;
+
+    .selectedValue,
+    .searchInput {
+      --height: calc(var(--input-height) - 4px);
+      
+      flex: 1;
+      height: var(--height);
+      line-height: var(--height);
+      font-size: 16px;
+    }
+    
+    .searchInput {
+      border: none;
+      outline: none;
+    }
+
+    .toggleBtn {
+      flex-shrink: 0;
+      border: none;
+      background-color: transparent;
+
+      .chevron::before {
+        border-style: solid;
+        border-width: 0.25em 0.25em 0 0;
+        content: '';
+        display: inline-block;
+        height: 0.45em;
+        left: 0.15em;
+        position: relative;
+        top: 0.15em;
+        transform: rotate(-45deg);
+        width: 0.45em;
+        transition: 0.3s ease;
+      }
+      
+      .chevron.bottom:before {
+        top: 0;
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  .dropdown {
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    position: absolute;
+    left: 0;
+    top: calc(var(--input-height) + 10px);
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+
+    &.expanded {
+      opacity: 1;
+      pointer-events: unset;
+    }
+
+    .options {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      
+      .option {
+        padding: 6px 12px;
+        background-color: transparent;
+        cursor: pointer;
+        transition: background-color .3s ease;
+
+        &:hover {
+          background-color: blanchedalmond;
+        }
+
+        &.active {
+          background-color: var(--brand-color);
+        }
+      }
+    }
+  }
+}

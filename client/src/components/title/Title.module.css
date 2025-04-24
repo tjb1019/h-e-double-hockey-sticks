@@ -1,0 +1,15 @@
+.root {
+  font-weight: bold;
+  
+  &.sm {
+    font-size: 1.5rem;
+  }
+
+  &.md {
+    font-size: 2rem;
+  }
+
+  &.xl {
+    font-size: 3rem;
+  }
+}

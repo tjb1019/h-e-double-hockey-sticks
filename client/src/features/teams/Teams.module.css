@@ -1,0 +1,13 @@
+.root {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(275px, 100%), 1fr));
+  
+  .teamLogo {
+    height: 175px;
+  }
+  
+  .link {
+    text-decoration: none;
+  }
+}

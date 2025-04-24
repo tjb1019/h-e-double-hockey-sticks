@@ -1,0 +1,13 @@
+.root {
+  cursor: pointer;
+  border: 1px solid rgb(222, 226, 230);
+  border-radius: 6px;
+  box-shadow: rgba(44, 44, 44, 0.2) 0px 7px 29px 0px;
+  padding: 1.25rem;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: rgba(22, 22, 22, 0.2) 0px 14px 29px 0px;
+  }
+}
