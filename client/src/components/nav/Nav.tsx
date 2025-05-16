@@ -5,24 +5,34 @@ import { Group } from '../group/Group';
 import styles from './Nav.module.css';
 import { ThemeToggle } from './theme-toggle/ThemeToggle';
 
-const NAV_ITEMS = ['teams'];
+type NavItem = {
+  label: string;
+  path: string;
+};
+const NAV_ITEMS: NavItem[] = [
+  { label: 'Standings', path: 'standings' },
+  { label: 'Teams', path: 'teams' },
+  { label: 'Prospects', path: 'prospects' },
+  { label: 'Lineup Builder', path: 'lineup-builder' },
+];
 
 export const Nav: FC = () => {
   return (
     <nav className={styles.root}>
       <Group alignItems="center">
-        <img className={styles.logo} src="/nhl-logo.png" alt="nav logo" />
-        <h5>Hockey Manager</h5>
+        <NavLink className={styles.logo} to={'/'}>
+          <img src="/logo.png" alt="hockey manager logo" />
+        </NavLink>
       </Group>
       <Group>
         {NAV_ITEMS.map((item) => {
           return (
             <NavLink
-              key={item}
+              key={item.path}
               className={({ isActive }) => clsx(styles.navItem, { [styles.isActive]: isActive })}
-              to={`/${item}`}
+              to={`/${item.path}`}
             >
-              {item}
+              {item.label}
             </NavLink>
           );
         })}

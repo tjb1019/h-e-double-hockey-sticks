@@ -1,5 +1,6 @@
 .root {
   border-bottom: 1px solid lightgrey;
+  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
   padding: 0 20px;
   height: 60px;
   display: flex;
@@ -7,7 +8,11 @@
   align-items: center;
 
   .logo {
-    height: 40px;
+    position: relative;
+    
+    img {
+      height: 45px;
+    }
   }
 
   .navItem {

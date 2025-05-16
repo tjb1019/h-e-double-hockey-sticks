@@ -11,7 +11,7 @@ export const Teams: FC = () => {
 
   return (
     <>
-      <div className={styles.root} style={{ marginTop: '100px' }}>
+      <div className={styles.root}>
         {teams.map((team) => {
           return (
             <Link key={team.id} to={`/teams/${team.id}`} state={{ team }} className={styles.link}>
